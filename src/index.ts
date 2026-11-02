@@ -20,6 +20,7 @@ export {
   MINIMAX_DEFAULT_CONTEXT_WINDOW,
   MINIMAX_DEFAULT_MODEL_CATALOG,
   MINIMAX_INFERENCE_ENV_VAR,
+  MINIMAX_INFERENCE_ENV_VAR_CN,
   MINIMAX_OAUTH_CLIENT_ID,
   MINIMAX_OAUTH_SCOPE,
   MINIMAX_OAUTH_USER_CODE_GRANT,
@@ -28,7 +29,9 @@ export {
   MINIMAX_OAUTH_POLL_INTERVAL_MS,
   MINIMAX_OAUTH_HTTP_TIMEOUT_SECONDS,
   MINIMAX_PROVIDER_ID,
+  MINIMAX_PROVIDER_ID_CN,
   MINIMAX_REGION_GLOBAL,
+  MINIMAX_REGION_CN,
 } from './const.ts'
 export type { MiniMaxProviderProfile, MiniMaxCatalogModel } from './const.ts'
 
@@ -40,5 +43,15 @@ export type { DeviceCodeResponse, PollOptions, AuthorizationResult, Authorizatio
 
 export { MiniMaxAdapter, readSerializedToken } from './adapter.ts'
 export type { SerializedToken } from './adapter.ts'
+
+/**
+ * Brand constructors for the harness message vocabulary.
+ *
+ * Re-exported so a plugin author (or a test) can build a valid message
+ * without depending on `@deepseek-ai/dsh-llm` directly: `MessageId` brands a
+ * message identity and `ToolCallId` brands the tool-call correlation that
+ * the `0.2.x` message model carries on `role: 'tool'` messages.
+ */
+export { MessageId, ToolCallId } from '@deepseek-ai/dsh-llm'
 
 export { apply } from './apply.ts'
